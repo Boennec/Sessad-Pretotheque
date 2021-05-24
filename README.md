@@ -1,0 +1,1 @@
+# symfony new Sessad-Pretotheque --full
