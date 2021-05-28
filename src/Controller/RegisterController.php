@@ -34,13 +34,13 @@ class RegisterController extends AbstractController
 
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() & $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
 
             $admin = $form->getData();
 
 
             $password = $encoder->encodePassword($admin, $admin->getPassword());
-            
+
             $admin->setPassword($password);
 
             $this->entityManager->persist($admin);
