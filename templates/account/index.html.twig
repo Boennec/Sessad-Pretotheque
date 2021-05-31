@@ -8,7 +8,10 @@
 	Bienvenue
 	{{ app.user.prenom }}
 	{{ app.user.nom }}
-	dans votre compte
+	dans votre compte<hr>
+
+<a href="{{ path('account_password') }}">Modifier mon mot de passe</a><br>
 
 
+<hr>
 {% endblock %}
