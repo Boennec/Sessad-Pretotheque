@@ -13,7 +13,7 @@
 
 		<!-- Bootstrap core CSS -->
 		<link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
-
+		<link rel="stylesheet" href="{{ asset('assets/css/Sessad-Pretotheque.css') }}">
 		<style>
 			.bd-placeholder-img {
 				font-size: 1.125rem;
@@ -36,27 +36,30 @@
 	<body>
 		<header>
 			<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-				<a class="navbar-brand" href="#">Pretotheque</a>
+				<a class="navbar-brand" href="{{ path('home') }}">Pretotheque</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				<div class="collapse navbar-collapse" id="navbarCollapse">
 					<ul class="navbar-nav mr-auto">
 						<li class="nav-item active">
-							<a class="nav-link" href="#">Home
-								<span class="sr-only">(current)</span>
-							</a>
+							<a class="nav-link" href="#">Les articles</a>
+						</li>
+
+						<li class="nav-item active">
+							<a class="nav-link" href="#">La Charte</a>
 						</li>
 
 					</ul>
+					<div class="navbar-item-custom">
+						{% if app.user %}
+							<a href="{{ path('account') }}">Mon compte </a>({{ app.user.prenom }} {{ app.user.nom }}) | <a href="{{ path('app_logout') }}">Deconnexion</a>
 
-					{% if app.user %}
-					<a href="{{ path('account') }}">Mon compte</a> | <a href="{{ path('app_logout') }}">Deconnexion</a>
+						{% else %}
+							<a href="{{ path('app_login') }}">Connexion</a> | <a href="{{ path('register') }}">Inscription</a>
 
-					{% else %}
-					<a href="{{ path('app_login') }}">Connexion</a> | <a href="{{ path('register') }}">Inscription</a>
-
-					{% endif %}
+						{% endif %}
+					</div>
 				</div>
 			</nav>
 		</header>
@@ -120,27 +123,23 @@
 			{% endif %}
 
 			<!-- Marketing messaging and featurettes
-			    ================================================== -->
+									    ================================================== -->
 			<!-- Wrap the rest of the page in another container to center all the content. -->
 
-			<div class="container marketing {% if block('carousel') is not defined %}mt-5{% endif %}"> 
-            
-            {% block content %}
-            {% endblock %}
+			<div class="container marketing {% if block('carousel') is not defined %}mt-5{% endif %}"> {% block content %}{% endblock %}
 
 
 				</div>
 				<!-- /.container -->
 
 				<!-- FOOTER -->
-				<footer class="container">
-					<p class="float-right">
-						<a href="#">Back to top</a>
-					</p>
-					<p>&copy; 2017-2020 Company, Inc. &middot;
-						<a href="#">Privacy</a>
-						&middot;
-						<a href="#">Terms</a>
+				<footer class="footer-custom">
+					
+					<p>
+						&copy; 2021 Sessad - Pretotheque;<br/>
+						<a href="#">Conditions Générales d'Utilisation</a>
+						
+						
 					</p>
 				</footer>
 			</main>
