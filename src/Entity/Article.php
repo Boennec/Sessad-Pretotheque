@@ -65,7 +65,7 @@ class Article
     /**
      * @ORM\Column(type="boolean")
      */
-    private $disponibilité;
+    private $disponible;
 
     /**
      * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="articles")
@@ -186,14 +186,14 @@ class Article
         return $this;
     }
 
-    public function getDisponibilité(): ?bool
+    public function getDisponible(): ?bool
     {
-        return $this->disponibilité;
+        return $this->disponible;
     }
 
-    public function setDisponibilité(bool $disponibilité): self
+    public function setDisponible(bool $disponible): self
     {
-        $this->disponibilité = $disponibilité;
+        $this->disponible = $disponible;
 
         return $this;
     }
