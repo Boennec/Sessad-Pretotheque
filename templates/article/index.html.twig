@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les articles Sessad-Pretotheque
+{% endblock %}
+
+{% block content %}
+	<h1>Les Articles</h1>
+
+
+	<div class="row">
+		{% for article in articles %}
+			<div class="col-md-4">
+				<div class="product-item text-center">
+					<img src="/uploads/{{ article.imageURL }}" alt="{{ article.name }}" class="img-fluid">
+					<h5>{{ article.name }}</h5>
+					<span class="product-price">{{ (article.prix/ 100) |number_format(2, ',', '.') }} €</span>
+
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+
+{% endblock %}
