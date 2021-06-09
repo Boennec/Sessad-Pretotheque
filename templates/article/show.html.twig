@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{ article.name }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="row">
+
+		<div class="col-md-5">
+			<img src="/uploads/{{ article.imageURL }}" alt="{{ article.name }}">
+		</div>
+
+		<div class="col-md-7 my-auto">
+			<h3>{{ article.name }}</h3>
+            <hr>
+			<p>{{ article.description }}</p>
+            <hr>
+            {{ (article.prix/ 100) |number_format(2, ',', '.') }} €
+		</div>
+
+	</div>
+{% endblock %}
