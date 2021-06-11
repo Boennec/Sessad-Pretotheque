@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Classe\Search;
 use App\Entity\Article;
+use App\Form\SearchType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,10 +25,13 @@ class ArticleController extends AbstractController
     {
         $articles = $this->entityManager->getRepository(Article::class)->findAll();
 
+        $search = new Search;
+        $form = $this->createForm(SearchType::class, $search);
 
 
         return $this->render('article/index.html.twig', [
-            'articles' => $articles
+            'articles' => $articles,
+            'form'     => $form->createView()
         ]);
     }
 
