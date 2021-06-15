@@ -9,15 +9,16 @@
 	<div class="row">
 
 		<div class="col-md-5">
-			<img src="/uploads/{{ article.imageURL }}" alt="{{ article.name }}">
+			<img src="/uploads/{{ article.imageURL }}" alt="{{ article.name }}" class="img-fluid">
 		</div>
 
-		<div class="col-md-7 my-auto">
+		<div class="col-md-7">
 			<h3>{{ article.name }}</h3>
-            <hr>
+			<hr>
 			<p>{{ article.description }}</p>
-            <hr>
-            {{ (article.prix/ 100) |number_format(2, ',', '.') }} €
+			<hr>
+			{{ (article.prix/ 100) |number_format(2, ',', '.') }}
+			€
 		</div>
 
 	</div>
