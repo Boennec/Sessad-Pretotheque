@@ -38,7 +38,7 @@ class RegisterController extends AbstractController
 
             $admin = $form->getData();
 
-
+//dans $password on a $encoder a qui on fait passer la methode d'encodage qui prend les paramètres: admin et le mot de passe a encoder
             $password = $encoder->encodePassword($admin, $admin->getPassword());
 
             $admin->setPassword($password);

@@ -10,6 +10,9 @@
 	{{ app.user.nom }}
 	dans votre compte<hr>
 
+{% if is_granted('ROLE_ADMIN') %}
+<a href="/admin">Accéder au tableau de bord</a><br>
+{% endif %}
 <a href="{{ path('account_password') }}">Modifier mon mot de passe</a><br>
 
 

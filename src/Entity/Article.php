@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ArticleRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -21,6 +23,11 @@ class Article
      * @ORM\Column(type="string", length=255)
      */
     private $name;
+
+    public function __toString()
+    {
+        return $this->getname();
+    }
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -73,6 +80,22 @@ class Article
      */
     private $category;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isVisible;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Localisation::class, mappedBy="article")
+     */
+    private $localisations;
+
+    public function __construct()
+    {
+        $this->localisations = new ArrayCollection();
+    }
+
+    
     public function getId(): ?int
     {
         return $this->id;
@@ -209,4 +232,45 @@ class Article
 
         return $this;
     }
+
+    public function getIsVisible(): ?bool
+    {
+        return $this->isVisible;
+    }
+
+    public function setIsVisible(bool $isVisible): self
+    {
+        $this->isVisible = $isVisible;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Localisation[]
+     */
+    public function getLocalisations(): Collection
+    {
+        return $this->localisations;
+    }
+
+    public function addLocalisation(Localisation $localisation): self
+    {
+        if (!$this->localisations->contains($localisation)) {
+            $this->localisations[] = $localisation;
+            $localisation->addArticle($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLocalisation(Localisation $localisation): self
+    {
+        if ($this->localisations->removeElement($localisation)) {
+            $localisation->removeArticle($this);
+        }
+
+        return $this;
+    }
+
+    
 }
