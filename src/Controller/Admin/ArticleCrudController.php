@@ -20,7 +20,7 @@ class ArticleCrudController extends AbstractCrudController
         return Article::class;
     }
 
-
+    git checkout main
     public function configureFields(string $pageName): iterable
     {
         return [
