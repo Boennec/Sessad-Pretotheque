@@ -60,6 +60,16 @@ class Localisation
      */
     private $email;
 
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $dateDebut;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $dateFin;
+
     public function __construct()
     {
         $this->article = new ArrayCollection();
@@ -192,6 +202,30 @@ class Localisation
     public function setEmail(?string $email): self
     {
         $this->email = $email;
+
+        return $this;
+    }
+
+    public function getDateDebut(): ?\DateTimeInterface
+    {
+        return $this->dateDebut;
+    }
+
+    public function setDateDebut(?\DateTimeInterface $dateDebut): self
+    {
+        $this->dateDebut = $dateDebut;
+
+        return $this;
+    }
+
+    public function getDateFin(): ?\DateTimeInterface
+    {
+        return $this->dateFin;
+    }
+
+    public function setDateFin(?\DateTimeInterface $dateFin): self
+    {
+        $this->dateFin = $dateFin;
 
         return $this;
     }

@@ -3,9 +3,13 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Localisation;
+use Doctrine\DBAL\Types\DateTimeType;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 class LocalisationCrudController extends AbstractCrudController
 {
@@ -14,7 +18,7 @@ class LocalisationCrudController extends AbstractCrudController
         return Localisation::class;
     }
 
-    
+
     public function configureFields(string $pageName): iterable
     {
         return [
@@ -24,10 +28,11 @@ class LocalisationCrudController extends AbstractCrudController
             TextField::new('prenomEnfant'),
             TextField::new('etablissement'),
             TextField::new('posteOccupe'),
-            TextField::new('email'),
+            EmailField::new('email'),
+            DateTimeField::new('dateDebut'),
+            DateTimeField::new('dateFin'),
 
             AssociationField::new('article')
         ];
     }
-    
 }
