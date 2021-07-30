@@ -52,15 +52,17 @@
 					<div class="navbar-item-custom">
 						{% if app.user %}
 							<a href="{{ path('account') }}">Mon compte
-							</a>{{ app.user.prenom }}
-							{{ app.user.nom }} |
+							</a>
+							{{ app.user.prenom }}
+							{{ app.user.nom }}
+							|
 							<a href="{{ path('app_logout') }}">Deconnexion</a>
 
 						{% else %}
 							<a href="{{ path('app_login') }}">Connexion</a>
-							|
-							<a href="{{ path('register') }}">Inscription</a>
 
+							{# 							<a href="{{ path('register') }}">Inscription</a>
+							 #}
 						{% endif %}
 					</div>
 				</div>
@@ -71,20 +73,20 @@
 
 			{% if block('carousel') is defined %}
 				<div id="myCarousel" class="carousel slide" data-ride="carousel">
-					
+
 					<div class="carousel-inner">
 						<div class="carousel-item active">
 							<svg class="bd-placeholder-img" width="100%" height="5%" xmlns="http://www.w3.org/2000/svg" preserveaspectratio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg>
-							
+
 						</div>
-						
+
 					</div>
-					
+
 				</div>
 			{% endif %}
 
 			<!-- Marketing messaging and featurettes
-																											    ================================================== -->
+																														    ================================================== -->
 			<!-- Wrap the rest of the page in another container to center all the content. -->
 
 			<div class="container marketing {% if block('carousel') is not defined %}mt-5{% endif %}"> {% block content %}{% endblock %}

@@ -22,6 +22,7 @@ class DashboardController extends AbstractDashboardController
      */
     public function index(): Response
     {
+        //return $this->render();
         return parent::index();
     }
 

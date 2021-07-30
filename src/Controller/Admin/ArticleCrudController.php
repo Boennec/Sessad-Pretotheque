@@ -20,28 +20,27 @@ class ArticleCrudController extends AbstractCrudController
         return Article::class;
     }
 
-    
+
     public function configureFields(string $pageName): iterable
     {
         return [
             TextField::new('name'),
-            SlugField::new('slug')->setTargetFieldName('name'),
+            TextField::new('slug')->hideOnForm(),
             TextareaField::new('description'),
             ImageField::new('imageURL')->setBasePath('uploads/')
-                                       ->setUploadDir('public/uploads')
-                                       ->setUploadedFileNamePattern('[randomhash].[extension]')
-                                       ->setRequired(false),
+                ->setUploadDir('public/uploads')
+                ->setUploadedFileNamePattern('[randomhash].[extension]')
+                ->setRequired(false),
             BooleanField::new('isVisible'),
             MoneyField::new('prix')->setCurrency('EUR'),
             TextField::new('fournisseur'),
             TextField::new('referenceFournisseur'),
-            TextField::new('gencode'),
-            NumberField::new('compteurProduit'),
+            //TextField::new('gencode'),
+            //NumberField::new('compteurProduit'),
             AssociationField::new('category'),
-            BooleanField::new('disponible'),
+            //BooleanField::new('disponible'),
 
 
         ];
     }
-    
 }
