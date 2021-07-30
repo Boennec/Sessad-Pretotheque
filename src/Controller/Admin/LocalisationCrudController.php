@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Localisation;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class LocalisationCrudController extends AbstractCrudController
@@ -24,7 +25,7 @@ class LocalisationCrudController extends AbstractCrudController
             TextField::new('prenomEnfant'),
             TextField::new('etablissement'),
             TextField::new('posteOccupe'),
-            TextField::new('email'),
+            EmailField::new('email'),
 
             AssociationField::new('article')
         ];

@@ -90,12 +90,14 @@ class Article
      */
     private $localisations;
 
+
+
     public function __construct()
     {
         $this->localisations = new ArrayCollection();
     }
 
-    
+
     public function getId(): ?int
     {
         return $this->id;
@@ -272,5 +274,15 @@ class Article
         return $this;
     }
 
-    
+    public function getSuiviEmprunt(): ?SuiviEmprunt
+    {
+        return $this->SuiviEmprunt;
+    }
+
+    public function setSuiviEmprunt(SuiviEmprunt $SuiviEmprunt): self
+    {
+        $this->SuiviEmprunt = $SuiviEmprunt;
+
+        return $this;
+    }
 }
