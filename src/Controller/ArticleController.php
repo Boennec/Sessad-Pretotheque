@@ -30,6 +30,7 @@ class ArticleController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted()  && $form->isValid()) {
+            
             $articles = $this->entityManager->getRepository(Article::class)->findWithSearch($search);
         } else {
             

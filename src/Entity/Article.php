@@ -54,6 +54,7 @@ class Article
      */
     private $prix;
 
+
     /**
      * @ORM\Column(type="string", length=255)
      */
@@ -95,7 +96,11 @@ class Article
         $this->localisations = new ArrayCollection();
     }
 
-    
+    public function prixHT()
+    {
+        return $this->prix /1.2;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -172,6 +177,19 @@ class Article
 
         return $this;
     }
+
+    public function getprixHT(): ?float
+    {
+        return $this->prixHT;
+    }
+
+
+    public function setPrixHT(float $prixHT): self
+    {
+        $this->prixHT = $prixHT;
+    }
+
+
 
     public function getFournisseur(): ?string
     {
@@ -271,6 +289,4 @@ class Article
 
         return $this;
     }
-
-    
 }
