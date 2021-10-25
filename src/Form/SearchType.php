@@ -24,10 +24,10 @@ class SearchType extends AbstractType {
                     'placeholder' => 'votre recherche...'
                 ]
                 ])
-                -> add('categories', EntityType::class, [
+                -> add('categories', EntityType::class, [    //une entrée du formulaire est  (entityType) a un formulaire
                     'label' => false,
                     'required' => false,
-                    'class' => Category::class, 
+                    'class' => Category::class, //on dit a quelle classe est liée (entityType) le formulaire
                     'multiple' => true,
                     'expanded' => true
                 ])
@@ -40,7 +40,6 @@ class SearchType extends AbstractType {
         ;
     }
 
-
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
@@ -50,12 +49,10 @@ class SearchType extends AbstractType {
         ]);
     }
 
-
     public function getBlockPrefix()
     {
         return '';
     }
-
 }
 
 

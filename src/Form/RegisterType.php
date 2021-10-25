@@ -52,6 +52,7 @@ class RegisterType extends AbstractType
                     'placeholder' => 'veuillez saisir votre email'
                 ]
             ])
+            //repeatedType permet de générer 2 champs simultanément
             ->add('password', RepeatedType::class, [
                 'type'            => PasswordType::class,
                 'invalid_message' => 'les mots de passe doivent être identiques',

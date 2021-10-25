@@ -32,13 +32,13 @@ class ArticleRepository extends ServiceEntityRepository
     {
 
         $query = $this
-            ->createQueryBuilder('a')
-            ->select('c', 'a')
-            ->join('a.category', 'c');
+            ->createQueryBuilder('a')  //on créé une construction de requete avec la  table article
+            ->select('c', 'a')          //on selectionne categorie et article
+            ->join('a.category', 'c');  //on fait une jointure entre les categories (le champ) de l'article et la table category
 
-        if (!empty($search->categories)) {
+        if (!empty($search->categories)) { //categories est un propriété de la classe Search
 
-            $query = $query
+            $query = $query //on reprend la query et...
                 ->andWhere('c.id IN (:categories)')  //on passe en parametre categories
                 ->setParameter('categories', $search->categories); //on dit a quoi correspond categories, et on donne la valeur
         }
@@ -47,7 +47,7 @@ class ArticleRepository extends ServiceEntityRepository
 
             $query = $query
                 ->andWhere('a.name LIKE :string')
-                ->setParameter('string', "%{$search->string}%");
+                ->setParameter('string', "%{$search->string}%");//on fait une recherche partielle sur search->
         }
 
         return $query->getQuery()->getResult();

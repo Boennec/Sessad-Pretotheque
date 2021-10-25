@@ -27,7 +27,8 @@ class ArticleCrudController extends AbstractCrudController
             TextField::new('name'),
             TextField::new('slug')->hideOnForm(),
             TextareaField::new('description'),
-            ImageField::new('imageURL')->setBasePath('uploads/')
+            ImageField::new('imageURL')
+                ->setBasePath('uploads/')
                 ->setUploadDir('public/uploads')
                 ->setUploadedFileNamePattern('[randomhash].[extension]')
                 ->setRequired(false),

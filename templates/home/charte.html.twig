@@ -1,3 +1,6 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,17 +10,23 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Réglement intérieur</title>
 	</head>
+	<style>
+	.body{
+		font-color: black;
+
+	}
+	</style>
 
 	<body>
 		<h2>Règlement intérieur de la Prêtothèque</h2>
 		<p>
 			1. La Prêtothèque offre un service d'emprunt gratuit réservé aux familles des enfants, adolescents, jeunes
-						        adultes accompagnés par l’IME du Véléry de Plourin Les Morlaix et du SESSAD arc en ciel de Morlaix, ainsi
-						        qu’à leurs partenaires.</p>
+												        adultes accompagnés par l’IME du Véléry de Plourin Les Morlaix et du SESSAD arc en ciel de Morlaix, ainsi
+												        qu’à leurs partenaires.</p>
 
 		<p>2. Pour les emprunts et les retours, une permanence a lieu une fois par mois. Les dates et lieux de ces
-						        permanences seront référencés dans un calendrier annuel. Exceptionnellement, les échanges peuvent
-						        s'organiser avec les responsables de services.</p>
+												        permanences seront référencés dans un calendrier annuel. Exceptionnellement, les échanges peuvent
+												        s'organiser avec les responsables de services.</p>
 
 		<p>3. Trois jeux au maximum peuvent être empruntés sur une même période.</p>
 
@@ -26,32 +35,32 @@
 
 		<p>
 			5. La durée d'emprunt est de 4 semaines. Un même jeu peut être emprunté pour une deuxième
-					        période de 4 semaines s'il n'a fait l'objet d'aucune réservation.</p>
+											        période de 4 semaines s'il n'a fait l'objet d'aucune réservation.</p>
 
 		<p>
 			6. Le matériel doit être rendu propre.</p>
 
 		<p>
 			7. Pour protéger le matérielde la prêtothèque, il est nécessaire que pour chaque emprunt, un chèque de
-					        caution soit demandé. Il existe deux possibilités:
-					        - soit le montant du chèque représente la valeur, sans vétusté, des jeux empruntés. Dans cette
-					        situation, il sera renouvelé à chaque emprunt.
-					        - soit les emprunteurs déposent un chèque de 150 euros qui servira de caution pour tous les
-					        emprunts. Ce chèque sera renouvelé tous les ans au moment de la rentrée scolaire.
-					        Ces cautions ne seront pas encaissées.</p>
+											        caution soit demandé. Il existe deux possibilités:
+											        - soit le montant du chèque représente la valeur, sans vétusté, des jeux empruntés. Dans cette
+											        situation, il sera renouvelé à chaque emprunt.
+											        - soit les emprunteurs déposent un chèque de 150 euros qui servira de caution pour tous les
+											        emprunts. Ce chèque sera renouvelé tous les ans au moment de la rentrée scolaire.
+											        Ces cautions ne seront pas encaissées.</p>
 
 		<p>8. Le chèque de caution sera encaissé en cas de non-retour du jeu emprunté et après deux relances de
-					        la part du service. Dans cette situation, il ne sera pas tenu compte de la vétusté de l'objet emprunté. Si le
-					        chèque de caution représentait la valeur de plusieurs jeux et qu'un seul est concerné par le non-retour, la
-					        différence sera remboursée aux emprunteurs.</p>
+											        la part du service. Dans cette situation, il ne sera pas tenu compte de la vétusté de l'objet emprunté. Si le
+											        chèque de caution représentait la valeur de plusieurs jeux et qu'un seul est concerné par le non-retour, la
+											        différence sera remboursée aux emprunteurs.</p>
 
 		<p>9. Conscients que les jeux risquent d'être endommagés pendant l'emprunt étant donnée la
-					        problématique de nos enfants, nous demandons aux parents ou à toute personne utilisant notre matériel
-					        d'être vigilants et de ne pas laisser l'enfant jouer seul avec ces jeux. Aucune contribution financière ne sera
-					        demandée si un jeu est endommagé sauf si les dégâts le rendent inutilisable.</p>
+											        problématique de nos enfants, nous demandons aux parents ou à toute personne utilisant notre matériel
+											        d'être vigilants et de ne pas laisser l'enfant jouer seul avec ces jeux. Aucune contribution financière ne sera
+											        demandée si un jeu est endommagé sauf si les dégâts le rendent inutilisable.</p>
 
 		<p>10. Lors de l'utilisation de notre matériel, en aucun cas, la responsabilité de l'association ne pourra être
-					        engagée.</p>
+											        engagée.</p>
 
 		<p>
 			11. Tout usager de la Prêtothèque s'engage à respecter le présent règlement.</p>
@@ -64,11 +73,14 @@
 
 	</body>
 </html>
+<br>
+<br>
 
 
-<p>cliquer pour imprimer</p>
 
 
 <input type="button" value="imprimer" onclick="this.style.display='none';window.print();"/>
 
+
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script></body></html>
+{% endblock %}

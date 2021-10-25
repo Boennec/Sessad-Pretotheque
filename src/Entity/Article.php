@@ -86,15 +86,6 @@ class Article
      */
     private $isVisible;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=Localisation::class, mappedBy="article")
-     */
-    private $localisations;
-
-    public function __construct()
-    {
-        $this->localisations = new ArrayCollection();
-    }
 
     public function prixHT()
     {
@@ -263,30 +254,5 @@ class Article
         return $this;
     }
 
-    /**
-     * @return Collection|Localisation[]
-     */
-    public function getLocalisations(): Collection
-    {
-        return $this->localisations;
-    }
-
-    public function addLocalisation(Localisation $localisation): self
-    {
-        if (!$this->localisations->contains($localisation)) {
-            $this->localisations[] = $localisation;
-            $localisation->addArticle($this);
-        }
-
-        return $this;
-    }
-
-    public function removeLocalisation(Localisation $localisation): self
-    {
-        if ($this->localisations->removeElement($localisation)) {
-            $localisation->removeArticle($this);
-        }
-
-        return $this;
-    }
+    
 }

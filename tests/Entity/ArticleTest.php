@@ -1,5 +1,4 @@
 <?php
-
 //namespace Tests\AppBundle\Entity;
 namespace App\Tests\Entity;
 
