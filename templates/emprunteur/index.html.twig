@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les emprunteurs{% endblock %}
+
+{% block content %}
+<h1>Les emprunteurs</h1>
+<br>
+
+{% for emprunteur in emprunteurs %}
+    <h5>{{emprunteur.email}}</h5>
+{% endfor %}
+<br>
+<br>
+{% if is_granted('ROLE_ADMIN') %}
+		<a href="/admin">Accéder au tableau de bord</a><br>
+	{% endif %}
+{% endblock %}

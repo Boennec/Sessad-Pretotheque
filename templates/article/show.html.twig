@@ -17,9 +17,14 @@
 			<hr>
 			<p>{{ article.description }}</p>
 			<hr>
+			<p>{{ article.fournisseur }}</p>
 			{{ (article.prix/ 100) |number_format(2, ',', '.') }}
 			€
 		</div>
 
 	</div>
+	<input type="button" value="imprimer" onclick="this.style.display='none';window.print();"/>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 {% endblock %}

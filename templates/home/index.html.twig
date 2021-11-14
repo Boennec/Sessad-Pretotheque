@@ -4,8 +4,15 @@
 {# {% block carousel %}{% endblock %}#}
 {% block content %}
 	<!-- Three columns of text below the carousel -->
-	<h3>Articles à surveiller</h3>
-	<h4>Garder une vigilence sur ces articles</h4>
+	<h3>LES GENETS D'OR - PRETOTHEQUE</h3>
+	<br>
+	<h4>Prochaine permanence au SESSAD-Arc En Ciel : le 
+	{% for event in events %}
+	{{ event.description }}
+	{% endfor %}
+	
+	</h4>
+
 	<div class="row">
 		{% for article in articles %}
 			<div class="col-md-3">

@@ -3,10 +3,11 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Admin;
+use App\Entity\Event;
 use App\Entity\Article;
 use App\Entity\Category;
 use App\Entity\Emprunteur;
-use App\Entity\Localisation;
+use App\Entity\Reservation;
 use App\Entity\CategoryEmprunteur;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\User\User;
@@ -42,6 +43,8 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Articles', 'fa fa-tag', Article::class);
         yield MenuItem::linkToCrud('Categorie emprunteurs', 'fa fa-bookmark', CategoryEmprunteur::class);
         yield MenuItem::linkToCrud('Emprunteurs', 'fa fa-user-circle-o', Emprunteur::class);
+        yield MenuItem::linkToCrud('Emprunt en cours', 'far fa-calendar-alt', Reservation::class);
+        yield MenuItem::linkToCrud('Evenement', 'far fa-calendar-alt', Event::class);
         yield MenuItem::linkToRoute('Retour à l\'accueil', 'fa fa-archive', 'home');
     }
 }

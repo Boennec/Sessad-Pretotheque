@@ -6,6 +6,9 @@ use App\Entity\Emprunteur;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Notifier\Message\EmailMessage;
 
 class EmprunteurCrudController extends AbstractCrudController
 {
@@ -18,7 +21,7 @@ class EmprunteurCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextField::new('email'),
+            EmailField::new('email'),
             TextField::new('NomFamilleEnfant'),
             TextField::new('PrenomEnfant'),
             TextField::new('NomFamilleParent'),
@@ -28,6 +31,7 @@ class EmprunteurCrudController extends AbstractCrudController
             TextField::new('structurePartenaire'),
             TextField::new('groupePartenaire'),
             AssociationField::new('CategoryEmprunteur'),
+            
 
         ];
     }

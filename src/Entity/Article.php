@@ -86,10 +86,22 @@ class Article
      */
     private $isVisible;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Reservation::class, mappedBy="Article")
+     */
+    private $reservations;
+
+
+
+    public function __construct()
+    {
+        $this->reservations = new ArrayCollection();
+    }
+
 
     public function prixHT()
     {
-        return $this->prix /1.2;
+        return $this->prix / 1.2;
     }
 
     public function getId(): ?int
@@ -254,5 +266,45 @@ class Article
         return $this;
     }
 
-    
+    /**
+     * @return Collection|Reservation[]
+     */
+    public function getReservations(): Collection
+    {
+        return $this->reservations;
+    }
+
+    public function addReservation(Reservation $reservation): self
+    {
+        if (!$this->reservations->contains($reservation)) {
+            $this->reservations[] = $reservation;
+            $reservation->setArticle($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReservation(Reservation $reservation): self
+    {
+        if ($this->reservations->removeElement($reservation)) {
+            // set the owning side to null (unless already changed)
+            if ($reservation->getArticle() === $this) {
+                $reservation->setArticle(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getDateAcquisition(): ?\DateTimeInterface
+    {
+        return $this->dateAcquisition;
+    }
+
+    public function setDateAcquisition(\DateTimeInterface $dateAcquisition): self
+    {
+        $this->dateAcquisition = $dateAcquisition;
+
+        return $this;
+    }
 }
