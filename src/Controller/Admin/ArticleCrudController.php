@@ -25,7 +25,7 @@ class ArticleCrudController extends AbstractCrudController
     {
         return [
             TextField::new('name'),
-            TextField::new('slug')->hideOnForm(),
+            SlugField::new('slug')->setTargetFieldName('name'),
             TextareaField::new('description'),
             ImageField::new('imageURL')
                 ->setBasePath('uploads/')
@@ -36,10 +36,10 @@ class ArticleCrudController extends AbstractCrudController
             MoneyField::new('prix')->setCurrency('EUR'),
             TextField::new('fournisseur'),
             TextField::new('referenceFournisseur'),
-            //TextField::new('gencode'),
-            //NumberField::new('compteurProduit'),
+            TextField::new('gencode'),
+            NumberField::new('compteurProduit'),
             AssociationField::new('category'),
-            //BooleanField::new('disponible'),
+            BooleanField::new('disponible'),
 
 
         ];

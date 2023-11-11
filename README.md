@@ -50,3 +50,15 @@ si l'user renseigne un texte a rechercher ca execute:
 $query = $query
                 ->andWhere('p.name LIKE :string')
                 ->setParameter('string', "%{$search->string}");
+
+/**
+*<div class="product-item text-center">
+	<a href="{{ path('articles', { 'slug' : article.slug}) }}"><img src="/uploads/{{ article.imageURL }}" alt="{{ article.name }}" class="img-fluid"></a>
+	<h5>{{ article.name }}</h5>
+	<span class="product-price">{{ (article.prix/ 100) |number_format(2, ',', '.') }} €</span>
+</div>
+*
+**/
+
+
+

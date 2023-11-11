@@ -46,14 +46,14 @@ class ArticleController extends AbstractController
 
 
     /**
-     * @Route("/article/{slug}", name="article")
+     * @Route("/article/{name}", name="article")
      */
-    public function show($slug): Response
+    public function show($name): Response
     {
 
 
 
-        $article = $this->entityManager->getRepository(Article::class)->findOneBySlug($slug);
+        $article = $this->entityManager->getRepository(Article::class)->findOneByName($name);
 
         if (!$article) {
 
